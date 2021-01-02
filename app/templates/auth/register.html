@@ -1,0 +1,28 @@
+{% extends "assets/base.html" %}
+
+{% block content %}
+<h1 class="mt-5">{{ title }}</h1>
+<form>
+    <div class="form-group">
+        <label for="exampleInputEmail1">First Name</label>
+        <input type="email" class="form-control" id="first_name" placeholder="Enter First Name">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Last Name</label>
+        <input type="email" class="form-control" id="last_name" placeholder="Enter Last Name">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email Address</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Eamil">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter Password">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+{% endblock %}
