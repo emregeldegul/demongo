@@ -1,6 +1,6 @@
+{% from "macros/alerts.html" import error, alert %}
 <!doctype html>
 <html lang="tr" class="h-100">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,14 +44,12 @@
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/5.0/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">
 </head>
-
 <body class="d-flex flex-column h-100">
-
     <header>
         <!-- Fixed navbar -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">{{ site_name }}</a>
+                <a class="navbar-brand" href="{{ url_for('main.index') }}">{{ site_name }}</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -60,22 +58,26 @@
                         <li class="nav-item active">
                             <a class="nav-link" aria-current="page" href="{{ url_for('main.index') }}">Home</a>
                         </li>
+                        {% if current_user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+                        </li>
+                        {% else %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
                         </li>
+                        {% endif %}
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
         </nav>
     </header>
-
     <!-- Begin page content -->
     <main class="flex-shrink-0">
         <div class="container">
@@ -84,18 +86,14 @@
             {% endblock %}
         </div>
     </main>
-
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
             <span class="text-muted">Place sticky footer content here.</span>
         </div>
     </footer>
-
-
     <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     {% block js %}
 
     {% endblock %}
 </body>
-
 </html>

@@ -1,0 +1,36 @@
+{% extends "assets/base.html" %}
+
+{% block content %}
+<h1 class="mt-5">{{ title }}</h1>
+{{ error(form) }}
+{{ alert() }}
+<form method="POST">
+     {{ form.csrf_token() }}
+     <div class="form-group">
+         {{ form.first_name.label() }}
+         {{ form.first_name(class="form-control") }}
+     </div>
+     <br>
+     <div class="form-group">
+         {{ form.last_name.label() }}
+         {{ form.last_name(class="form-control") }}
+     </div>
+     <br>
+    <div class="form-group">
+        {{ form.email.label() }}
+        {{ form.email(class="form-control") }}
+    </div>
+    <br>
+    <div class="form-group">
+        {{ form.password.label() }}
+        {{ form.password(class="form-control") }}
+    </div>
+    <br>
+    <div class="form-group">
+        {{ form.password_confirm.label() }}
+        {{ form.password_confirm(class="form-control") }}
+    </div>
+    <br>
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}
