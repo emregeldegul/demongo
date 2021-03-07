@@ -31,7 +31,7 @@ class EditProfileForm(FlaskForm):
 class ChangePasswordForm(FlaskForm):
     old_password = PasswordField(
         'Old Password',
-        validators=[DataRequired(), Length(min=6, max=20)],
+        validators=[DataRequired()],
         render_kw={'placeholder': 'Old Password'}
     )
     new_password = PasswordField(
@@ -41,7 +41,14 @@ class ChangePasswordForm(FlaskForm):
     )
     password_confirm = PasswordField(
         'New Password Confirm',
-        validators=[DataRequired(), EqualTo('password')],
+        validators=[DataRequired(), EqualTo('new_password')],
         render_kw={'placeholder': 'New Password Confirm'}
     )
     submit = SubmitField('Change Password')
+
+    @staticmethod
+    def validate_old_password(self, old_password):
+        user = User.query.filter_by(email=current_user.email).first()
+
+        if not user.check_password(old_password.data):
+            raise ValidationError('Old password could not be confirmed')
