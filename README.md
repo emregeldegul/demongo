@@ -12,4 +12,4 @@ Demongo is a simple structure for the flask framework. Just clone and start usin
 ```
 
 ## Screenshots
-![screenshots/demongo_screenshot.png](Demongo Screenshot)
+![alt text](screenshots/demongo_screenshot.png)
