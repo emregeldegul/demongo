@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'assets/base.html' %}
+
+{% set title = "International Server Error" %}
+
+{% block content %}
+    <main role="main" class="container">
+        <h1 class="mt-5">{{ title }}</h1>
+        <p class="lead">Sorry, a problem occurred. </p>
+        <p>We are dealing with this problem. We will solve this problem as soon as possible.</p>
+    </main>
+{% endblock %}
