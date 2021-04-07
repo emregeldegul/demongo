@@ -130,6 +130,5 @@ dmypy.json
 
 demongo.db
 
-settings_local.py
 
 .idea/*
