@@ -5,7 +5,7 @@ class BaseModel(db.Model):
     __abstract__ = True
 
     created_at = db.Column(db.DateTime, nullable=False, default=db.func.now(), server_default=db.func.now())
-    updated_at = db.Column(db.DateTime, nullable=False, default=db.func.now(), server_default=db.func.now(), onupdate=db.func.now())
+    updated_at = db.Column(db.DateTime, nullable=False, default=db.func.now(), server_default=db.func.now(), onupdate=db.func.now())  # noqa
 
     def save(self):
         if self.id is None:

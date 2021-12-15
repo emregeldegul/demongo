@@ -42,5 +42,4 @@ def password():
 
         flash('Password Successfully Updated', 'success')
 
-
     return render_template('views/profile/password.html', title='Edit Password', form=form)
