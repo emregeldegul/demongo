@@ -21,10 +21,15 @@ class LoginForm(FlaskForm):
 
 
 class RegisterForm(FlaskForm):
-    name = StringField(
-        'Name',
+    first_name = StringField(
+        'First Name',
         validators=[DataRequired(), Length(max=30)],
-        render_kw={'placeholder': 'Name', 'autofocus': True}
+        render_kw={'placeholder': 'First Name', 'autofocus': True}
+    )
+    last_name = StringField(
+        'Last Name',
+        validators=[DataRequired(), Length(max=30)],
+        render_kw={'placeholder': 'Last Name'}
     )
     email = StringField(
         'E-Mail',

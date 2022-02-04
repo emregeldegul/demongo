@@ -4,7 +4,7 @@ from app import mail
 from settings import settings
 
 
-class MailService:
+class MailHelper:
     def __init__(self):
         self.sender = settings.MAIL_USERNAME
 

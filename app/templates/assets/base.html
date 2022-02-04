@@ -11,9 +11,9 @@
 
     <title>
         {% if title is defined %}
-            {{ title }} | Demongo
+            {{ title }} | {{ config["TITLE"] }}
         {% else %}
-            {{ site_name }}
+            {{ config["TITLE"] }} | {{ config["BRIEF"] }}
         {% endif %}
     </title>
 

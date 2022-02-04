@@ -40,8 +40,9 @@ def register():
 
     if form.validate_on_submit():
         user = User()
+        user.first_name = form.first_name.data
+        user.last_name = form.last_name.data
         user.email = form.email.data
-        user.name = form.name.data
         user.generate_password_hash(form.password.data)
         user.save()
 

@@ -11,10 +11,11 @@ def load_user(id):
 
 
 class User(BaseModel, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(50), nullable=False)
+    last_name = db.Column(db.String(50), nullable=False)
+    full_name = db.column_property(first_name + " " + last_name)
     email = db.Column(db.String(70), nullable=False, unique=True)
-    password = db.Column(db.String(32), nullable=False)
-    name = db.Column(db.String(30), nullable=True)
+    password = db.Column(db.String(102), nullable=False)
     note = db.Column(db.Text, nullable=True)
 
     def __repr__(self):

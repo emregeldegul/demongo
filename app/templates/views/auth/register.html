@@ -4,28 +4,48 @@
     <main role="main" class="container">
         <h1 class="mt-5">{{ title }}</h1>
         <hr>
-        {{ error(form) }}
-        {{ alert() }}
+        <div class="row">
+            <div class="col-md-12">
+                {{ error(form) }}
+                {{ alert() }}
+            </div>
+        </div>
         <form method="POST" action="">
             {{ form.csrf_token() }}
-            <div class="form-group">
-                {{ form.name.label() }}
-                {{ form.name(class="form-control") }}
-            </div>
-            <div class="form-group">
-                {{ form.email.label() }}
-                {{ form.email(class="form-control") }}
-            </div>
-            <div class="form-group">
-                {{ form.password.label() }}
-                {{ form.password(class="form-control") }}
-            </div>
-            <div class="form-group">
-                {{ form.password_confirm.label() }}
-                {{ form.password_confirm(class="form-control") }}
-            </div>
-            <div class="form-group">
-                {{ form.submit(class="btn btn-primary") }}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ form.first_name.label() }}
+                        {{ form.first_name(class="form-control") }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ form.last_name.label() }}
+                        {{ form.last_name(class="form-control") }}
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        {{ form.email.label() }}
+                        {{ form.email(class="form-control") }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    {{ form.password.label() }}
+                    {{ form.password(class="form-control") }}
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ form.password_confirm.label() }}
+                        {{ form.password_confirm(class="form-control") }}
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group text-right">
+                        {{ form.submit(class="btn btn-primary") }}
+                    </div>
+                </div>
             </div>
         </form>
     </main>

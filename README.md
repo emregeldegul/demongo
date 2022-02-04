@@ -51,7 +51,6 @@ from app.models.abstract import BaseModel
 
 
 class Order(BaseModel):
-    id = db.Column(db.Integer, primary_key=True)
     number = db.Column(db.String(50), nullable=False, unique=True)
     ...
 
