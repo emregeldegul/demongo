@@ -4,10 +4,10 @@ from flask_login import login_required, current_user
 from app.models.user import User
 from app.forms.profile import EditProfileForm, ChangePasswordForm
 
-profile = Blueprint('profile', __name__, url_prefix='/profile')
+profile = Blueprint("profile", __name__, url_prefix="/profile")
 
 
-@profile.route('/index', methods=['GET', 'POST'])
+@profile.route("/index", methods=["GET", "POST"])
 @login_required
 def index():
     form = EditProfileForm()
@@ -20,16 +20,16 @@ def index():
         user.note = form.note.data
         user.save()
 
-        flash('Profile Successfully Updated', 'success')
+        flash("Profile Successfully Updated", "success")
 
     form.name.data = current_user.name
     form.email.data = current_user.email
     form.note.data = current_user.note
 
-    return render_template('views/profile/index.html', title='Edit Profile', form=form)
+    return render_template("views/profile/index.html", title="Edit Profile", form=form)
 
 
-@profile.route('/password', methods=['GET', 'POST'])
+@profile.route("/password", methods=["GET", "POST"])
 @login_required
 def password():
     form = ChangePasswordForm()
@@ -40,6 +40,6 @@ def password():
         user.generate_password_hash(form.new_password.data)
         user.save()
 
-        flash('Password Successfully Updated', 'success')
+        flash("Password Successfully Updated", "success")
 
-    return render_template('views/profile/password.html', title='Edit Password', form=form)
+    return render_template("views/profile/password.html", title="Edit Password", form=form)
