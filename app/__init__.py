@@ -13,15 +13,15 @@ mail = Mail()
 
 
 def unauthorized(e):
-    render_template("assets/403.html"), 403
+    return render_template("assets/403.html"), 403
 
 
 def page_not_found(e):
-    return render_template('assets/404.html'), 404
+    return render_template("assets/404.html"), 404
 
 
 def international_server_error(e):
-    return render_template('assets/500.html'), 500
+    return render_template("assets/500.html"), 500
 
 
 def create_app():
