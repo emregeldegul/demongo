@@ -1,7 +1,23 @@
+from datetime import datetime, date
+
 from app import db
 
 
-class BaseModel(db.Model):
+class DictMixin:
+    def to_dict(self):
+        return {
+            column.name: getattr(self, column.name)
+            
+            if not isinstance(
+                getattr(self, column.name), (datetime, date)
+            )
+            else getattr(self, column.name).isoformat()
+            
+            for column in self.__table__.columns
+        }
+
+
+class BaseModel(db.Model, DictMixin):
     __abstract__ = True
 
     id = db.Column(db.Integer, primary_key=True)
