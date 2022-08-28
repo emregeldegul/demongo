@@ -1,3 +1,4 @@
+{% raw %}
 {% extends "assets/base.html" %}
 
 {% block content %}
@@ -13,24 +14,35 @@
         <form method="POST" action="">
             {{ form.csrf_token() }}
             <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ form.first_name.label() }}
+                        {{ form.first_name(class="form-control") }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {{ form.last_name.label() }}
+                        {{ form.last_name(class="form-control") }}
+                    </div>
+                </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         {{ form.email.label() }}
                         {{ form.email(class="form-control") }}
                     </div>
-
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-6">
+                    {{ form.password.label() }}
+                    {{ form.password(class="form-control") }}
+                </div>
+                <div class="col-md-6">
                     <div class="form-group">
-                        {{ form.password.label() }}
-                        {{ form.password(class="form-control") }}
+                        {{ form.password_confirm.label() }}
+                        {{ form.password_confirm(class="form-control") }}
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="form-group form-check">
-                        {{ form.remember_me(class="form-check-input") }}
-                        {{ form.remember_me.label(class="form-check-label") }}
-                    </div>
                     <div class="form-group text-right">
                         {{ form.submit(class="btn btn-primary") }}
                     </div>
@@ -39,3 +51,4 @@
         </form>
     </main>
 {% endblock %}
+{% endraw %}

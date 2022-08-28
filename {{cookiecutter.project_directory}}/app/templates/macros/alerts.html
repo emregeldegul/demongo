@@ -1,3 +1,4 @@
+{% raw %}
 {% macro error(form) %}
     {% for field in form.errors %}
         {% for error in form.errors[field] %}
@@ -23,3 +24,4 @@
         {% endif %}
     {% endwith %}
 {% endmacro %}
+{% endraw %}

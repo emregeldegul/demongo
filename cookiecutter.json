@@ -1,0 +1,11 @@
+{
+    "project_directory": "demongo",
+    "project_title": "Demongo",
+    "project_desc": "A Simple Structure For the Flask Framework",
+    "site_url": "http://localhost:5000",
+    "sqlite_database_name": "demongo",
+    "mail_server": "smtp.googlemail.com",
+    "mail_port": 587,
+    "mail_username": "",
+    "mail_password": ""
+  }

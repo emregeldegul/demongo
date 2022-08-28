@@ -1,3 +1,4 @@
+{% raw %}
 {% from "macros/alerts.html" import error, alert %}
 
 <!doctype html>
@@ -13,7 +14,7 @@
         {% if title is defined %}
             {{ title }} | {{ config["TITLE"] }}
         {% else %}
-            {{ config["TITLE"] }} | {{ config["BRIEF"] }}
+            {{ config["TITLE"] }} | {{ config["DESC"] }}
         {% endif %}
     </title>
 
@@ -24,15 +25,13 @@
     <link href="https://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/sticky-footer-navbar.css"
           rel="stylesheet">
 
-    {% block css %}
-
-    {% endblock %}
+    {% block css %}{% endblock %}
 </head>
 <body>
 <header>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="{{ url_for("main.index") }}">Demongo</a>
+        <a class="navbar-brand" href="{{ url_for("main.index") }}">{{ config["TITLE"] }}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -81,8 +80,8 @@
 <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
 <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
 
-{% block js %}
 
-{% endblock %}
+{% block js %}{% endblock %}
 </body>
 </html>
+{% endraw %}

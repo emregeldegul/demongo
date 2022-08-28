@@ -12,10 +12,15 @@ class EditProfileForm(FlaskForm):
         validators=[DataRequired(), Email(), Length(max=70)],
         render_kw={"placeholder": "E-Mail"}
     )
-    name = StringField(
-        "Name",
+    first_name = StringField(
+        "First Name",
         validators=[DataRequired(), Length(max=30)],
-        render_kw={"placeholder": "Name", "autofocus": True}
+        render_kw={"placeholder": "First Name", "autofocus": True}
+    )
+    last_name = StringField(
+        "Last Name",
+        validators=[DataRequired(), Length(max=30)],
+        render_kw={"placeholder": "Last Name"}
     )
     note = TextAreaField("Note")
     submit = SubmitField("Save")

@@ -33,9 +33,9 @@ def create_app():
     login_manager.init_app(app)
     mail.init_app(app)
 
-    login_manager.login_view = 'auth.login'
-    login_manager.login_message = 'Please Login To Access This Page'
-    login_manager.login_message_category = 'info'
+    login_manager.login_view = "auth.login"
+    login_manager.login_message = "Please Login To Access This Page"
+    login_manager.login_message_category = "info"
 
     app.register_error_handler(403, unauthorized)
     app.register_error_handler(404, page_not_found)

@@ -1,10 +1,11 @@
+{% raw %}
 {% extends "assets/base.html" %}
-
-{% set title = "Page Not Found" %}
+{% set title = "Unauthorized" %}
 
 {% block content %}
     <main role="main" class="container">
         <h1 class="mt-5">{{ title }}</h1>
-        <p class="lead">Try logging in or go back to the home page.</p>
+        <p class="lead">You do not have permission to view that page.</p>
     </main>
 {% endblock %}
+{% endraw %}

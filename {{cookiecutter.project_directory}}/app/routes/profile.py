@@ -15,14 +15,16 @@ def index():
     if form.validate_on_submit():
         user = User.query.filter_by(id=current_user.id).first()
 
-        user.name = form.name.data
+        user.first_name = form.first_name.data
+        user.last_name = form.last_name.data
         user.email = form.email.data
         user.note = form.note.data
         user.save()
 
         flash("Profile Successfully Updated", "success")
 
-    form.name.data = current_user.name
+    form.first_name.data = current_user.first_name
+    form.last_name.data = current_user.last_name
     form.email.data = current_user.email
     form.note.data = current_user.note
 
