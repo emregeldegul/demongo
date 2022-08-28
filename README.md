@@ -1,7 +1,7 @@
 # Demongo
 Demongo is a simple structure for the flask framework. Just clone and start using!
 
-## Setup
+## Setup Manuel
 ```bash
 ~$ git clone https://github.com/emregeldegul/demongo.git && cd demongo
 ~$ python3 -m virtualenv venv && source venv/bin/activate
@@ -11,6 +11,19 @@ Demongo is a simple structure for the flask framework. Just clone and start usin
 ~$ flask db upgrade
 ~$ flask run
 ```
+
+## Setup With Cookiecutter
+```bash
+~$ cookiecutter https://github.com/emregeldegul/demongo.git --checkout cookiecutter
+~$ cd <procjet_directory>
+~$ python3 -m virtualenv venv && source venv/bin/activate
+~$ pip install -r requirements.txt
+~$ flask db init
+~$ flask db migrate -m 'create struct'
+~$ flask db upgrade
+~$ flask run
+```
+
 
 ## Clear Commit History
 You may want to clear your GIT history after making improvements after the initial setup. Follow the steps below.
