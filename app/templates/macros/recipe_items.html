@@ -1,0 +1,24 @@
+{# One material line. Shared by the rendered rows and the <template> the JS clones,
+   so the markup (and the field-name pattern WTForms parses back) exists only once. #}
+{% macro recipe_item_row(index, choices, selected='', quantity='') %}
+<tr class="recipe-item-row">
+    <td>
+        <select class="form-select recipe-item-material" name="items-{{ index }}-material_id">
+            {% for value, label in choices %}
+                <option value="{{ value }}"{{ ' selected' if value == selected|string else '' }}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </td>
+    <td style="width: 130px;">
+        <input class="form-control recipe-item-quantity" type="number" step="0.01" min="0"
+               name="items-{{ index }}-quantity" value="{{ quantity }}" placeholder="0">
+    </td>
+    <td class="text-end align-middle" style="width: 120px;">
+        <span class="recipe-item-subtotal">0.00</span>
+    </td>
+    <td class="text-end" style="width: 60px;">
+        <button type="button" class="btn btn-sm btn-outline-danger recipe-item-remove"
+                aria-label="{{ _('Remove line') }}">&times;</button>
+    </td>
+</tr>
+{% endmacro %}

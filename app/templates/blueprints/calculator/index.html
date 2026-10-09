@@ -1,0 +1,127 @@
+{% extends "layouts/master.html" %}
+{% from "macros/recipe_items.html" import recipe_item_row %}
+
+{% set choices = form.items[0].material_id.choices %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0">{{ title }}</h1>
+        <a class="btn btn-outline-secondary" href="{{ url_for('recipes.index') }}">{{ _('Saved recipes') }}</a>
+    </div>
+
+    {# Single-quoted: tojson escapes ' but not ", so a double-quoted attribute would break. #}
+    <form id="recipe-form" method="post" novalidate
+          data-material-costs='{{ material_costs|tojson }}'>
+        {{ form.hidden_tag() }}
+
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            {{ form.name.label(class="form-label") }}
+                            {{ form.name(class="form-control" + (" is-invalid" if form.name.errors else "")) }}
+                            {% for error in form.name.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <span>{{ _('Materials') }}</span>
+                        <button type="button" id="add-recipe-item" class="btn btn-sm btn-outline-primary">
+                            {{ _('Add line') }}
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <table class="table align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>{{ _('Material') }}</th>
+                                    <th>{{ _('Quantity') }}</th>
+                                    <th class="text-end">{{ _('Subtotal') }}</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="recipe-items">
+                                {% for entry in form.items %}
+                                    {{ recipe_item_row(loop.index0, choices, entry.material_id.data or '', entry.quantity.data if entry.quantity.data is not none else '') }}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">{{ _('Labor, overhead and margin') }}</div>
+                    <div class="card-body">
+                        <div class="row">
+                            {% for field in [form.labor_hours, form.hourly_rate, form.overhead_percentage, form.profit_margin_percentage, form.tax_percentage] %}
+                                <div class="col-sm-6 col-lg-4 mb-3">
+                                    {{ field.label(class="form-label") }}
+                                    {{ field(class="form-control recipe-input" + (" is-invalid" if field.errors else ""), type="number", step="0.01", min="0") }}
+                                    {% for error in field.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card position-sticky" style="top: 1rem;">
+                    <div class="card-header">{{ _('Summary') }}</div>
+                    <div class="card-body">
+                        <dl class="row mb-0">
+                            <dt class="col-7 fw-normal">{{ _('Material cost') }}</dt>
+                            <dd class="col-5 text-end" id="summary-material-cost">0.00</dd>
+
+                            <dt class="col-7 fw-normal">{{ _('Labor cost') }}</dt>
+                            <dd class="col-5 text-end" id="summary-labor-cost">0.00</dd>
+
+                            <dt class="col-7 fw-normal">{{ _('Overhead') }}</dt>
+                            <dd class="col-5 text-end" id="summary-overhead-cost">0.00</dd>
+
+                            <dt class="col-7">{{ _('Net cost') }}</dt>
+                            <dd class="col-5 text-end fw-bold" id="summary-net-cost">0.00</dd>
+
+                            <dt class="col-7 fw-normal">{{ _('Price before tax') }}</dt>
+                            <dd class="col-5 text-end" id="summary-price-before-tax">0.00</dd>
+
+                            <dt class="col-7 fw-normal">{{ _('Tax') }}</dt>
+                            <dd class="col-5 text-end" id="summary-tax-amount">0.00</dd>
+                        </dl>
+
+                        <hr>
+
+                        <div class="d-flex justify-content-between align-items-baseline">
+                            <span class="fw-bold">{{ _('Suggested price') }}</span>
+                            <span class="fs-4 fw-bold text-success" id="summary-suggested-price">0.00</span>
+                        </div>
+
+                        <p class="form-text mt-2 mb-0">
+                            {{ _('Live preview only — totals are recalculated on the server when you save.') }}
+                        </p>
+                    </div>
+                    <div class="card-footer d-grid gap-2">
+                        {{ form.submit(class="btn btn-primary") }}
+                        {% if recipe %}
+                            <a class="btn btn-outline-secondary"
+                               href="{{ url_for('recipes.detail', recipe_id=recipe.id) }}">{{ _('Cancel') }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <template id="recipe-item-template">
+        {{ recipe_item_row('__index__', choices) }}
+    </template>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='assets/js/calculator.js') }}"></script>
+{% endblock %}

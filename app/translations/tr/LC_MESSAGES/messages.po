@@ -1,0 +1,474 @@
+# Turkish translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-09-21 10:36+0300\n"
+"PO-Revision-Date: 2026-09-08 14:58+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: tr\n"
+"Language-Team: tr <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: app/enums.py:25
+msgid "Pot"
+msgstr "Saksı"
+
+#: app/enums.py:26
+msgid "Leaf"
+msgstr "Yaprak"
+
+#: app/enums.py:27
+msgid "Trunk"
+msgstr "Gövde"
+
+#: app/enums.py:28
+msgid "Assembly mortar"
+msgstr "Montaj harcı"
+
+#: app/enums.py:29
+msgid "Accessory"
+msgstr "Aksesuar"
+
+#: app/blueprints/auth.py:38
+msgid "This account is disabled."
+msgstr "Bu hesap devre dışı bırakılmış."
+
+#: app/blueprints/auth.py:40
+msgid "Invalid email or password."
+msgstr "E-posta veya şifre hatalı."
+
+#: app/blueprints/auth.py:42 app/forms/auth.py:11 app/templates/layouts/master.html:39
+msgid "Log in"
+msgstr "Giriş yap"
+
+#: app/blueprints/auth.py:65
+msgid "Welcome! Your account has been created."
+msgstr "Hoş geldin! Hesabın oluşturuldu."
+
+#: app/blueprints/auth.py:69 app/blueprints/profile.py:38
+msgid "An account with this email already exists."
+msgstr "Bu e-posta ile kayıtlı bir hesap zaten var."
+
+#: app/blueprints/auth.py:71 app/blueprints/profile.py:40
+msgid "This username is already taken."
+msgstr "Bu kullanıcı adı zaten alınmış."
+
+#: app/blueprints/auth.py:73 app/forms/auth.py:22 app/templates/layouts/master.html:40
+msgid "Register"
+msgstr "Kayıt ol"
+
+#: app/blueprints/auth.py:92
+msgid "If that email is registered, a reset link has been sent."
+msgstr "Bu e-posta kayıtlıysa, bir sıfırlama linki gönderildi."
+
+#: app/blueprints/auth.py:95 app/forms/auth.py:36
+msgid "Reset password"
+msgstr "Şifreyi sıfırla"
+
+#: app/blueprints/auth.py:103 app/blueprints/auth.py:114
+msgid "This password reset link is invalid or has expired."
+msgstr "Bu şifre sıfırlama linki geçersiz veya süresi dolmuş."
+
+#: app/blueprints/auth.py:111
+msgid "Your password has been reset. You can now log in."
+msgstr "Şifren sıfırlandı. Artık giriş yapabilirsin."
+
+#: app/blueprints/auth.py:117
+msgid "Set new password"
+msgstr "Yeni şifre belirle"
+
+#: app/blueprints/calculator.py:28 app/blueprints/calculator.py:64 app/blueprints/recipes.py:30
+#: app/blueprints/recipes.py:53
+msgid "That recipe no longer exists."
+msgstr "Bu reçete artık mevcut değil."
+
+#: app/blueprints/calculator.py:56
+msgid "Recipe saved."
+msgstr "Reçete kaydedildi."
+
+#: app/blueprints/calculator.py:60
+msgid "Add at least one material line with a quantity."
+msgstr "En az bir malzeme satırı ve miktarı girin."
+
+#: app/blueprints/calculator.py:62
+msgid "One of the selected materials no longer exists."
+msgstr "Seçilen malzemelerden biri artık mevcut değil."
+
+#: app/blueprints/calculator.py:69
+msgid "Edit recipe"
+msgstr "Reçeteyi düzenle"
+
+#: app/blueprints/calculator.py:69
+msgid "Cost calculator"
+msgstr "Maliyet hesaplayıcı"
+
+#: app/blueprints/main.py:13
+msgid "Home"
+msgstr "Anasayfa"
+
+#: app/blueprints/main.py:14
+msgid "Welcome to the home page."
+msgstr "Anasayfaya hoş geldin."
+
+#: app/blueprints/materials.py:28 app/templates/blueprints/calculator/index.html:32
+#: app/templates/blueprints/materials/list.html:6 app/templates/blueprints/recipes/detail.html:24
+#: app/templates/layouts/master.html:24
+msgid "Materials"
+msgstr "Malzemeler"
+
+#: app/blueprints/materials.py:50
+msgid "Material added."
+msgstr "Malzeme eklendi."
+
+#: app/blueprints/materials.py:53 app/blueprints/materials.py:88
+#, fuzzy
+msgid "A material with this name already exists."
+msgstr "Bu e-posta ile kayıtlı bir hesap zaten var."
+
+#: app/blueprints/materials.py:55 app/templates/blueprints/materials/list.html:7
+msgid "New material"
+msgstr "Yeni malzeme"
+
+#: app/blueprints/materials.py:63 app/blueprints/materials.py:90 app/blueprints/materials.py:108
+msgid "That material no longer exists."
+msgstr "Bu malzeme artık mevcut değil."
+
+#: app/blueprints/materials.py:84
+msgid "Material updated."
+msgstr "Malzeme güncellendi."
+
+#: app/blueprints/materials.py:94
+msgid "Edit material"
+msgstr "Malzemeyi düzenle"
+
+#: app/blueprints/materials.py:102 app/blueprints/recipes.py:46
+msgid "That request could not be verified. Please try again."
+msgstr "Bu istek doğrulanamadı. Lütfen tekrar deneyin."
+
+#: app/blueprints/materials.py:110
+msgid "This material is used by a saved recipe, so it was deactivated instead of deleted."
+msgstr "Bu malzeme kayıtlı bir reçetede kullanılıyor, bu yüzden silinmek yerine pasife alındı."
+
+#: app/blueprints/materials.py:112
+msgid "Material deleted."
+msgstr "Malzeme silindi."
+
+#: app/blueprints/profile.py:15
+msgid "Profile"
+msgstr "Profil"
+
+#: app/blueprints/profile.py:34
+#, fuzzy
+msgid "Your profile has been updated."
+msgstr "Hoş geldin! Hesabın oluşturuldu."
+
+#: app/blueprints/profile.py:42
+msgid "Edit profile"
+msgstr "Profili düzenle"
+
+#: app/blueprints/profile.py:59
+#, fuzzy
+msgid "Your password has been changed."
+msgstr "Şifren sıfırlandı. Artık giriş yapabilirsin."
+
+#: app/blueprints/profile.py:62
+msgid "Your current password is incorrect."
+msgstr "Mevcut şifreniz hatalı."
+
+#: app/blueprints/profile.py:64 app/forms/profile.py:22
+#, fuzzy
+msgid "Change password"
+msgstr "Yeni şifre"
+
+#: app/blueprints/recipes.py:19 app/templates/blueprints/recipes/list.html:6
+#: app/templates/layouts/master.html:25
+msgid "Recipes"
+msgstr "Reçeteler"
+
+#: app/blueprints/recipes.py:51
+msgid "Recipe deleted."
+msgstr "Reçete silindi."
+
+#: app/forms/auth.py:8 app/forms/auth.py:15 app/forms/auth.py:26 app/forms/profile.py:8
+msgid "Email"
+msgstr "E-posta"
+
+#: app/forms/auth.py:9 app/forms/auth.py:17
+msgid "Password"
+msgstr "Şifre"
+
+#: app/forms/auth.py:10
+msgid "Remember me"
+msgstr "Beni hatırla"
+
+#: app/forms/auth.py:16 app/forms/profile.py:9
+msgid "Username"
+msgstr "Kullanıcı adı"
+
+#: app/forms/auth.py:19
+msgid "Confirm password"
+msgstr "Şifreyi onayla"
+
+#: app/forms/auth.py:20 app/forms/auth.py:34 app/forms/profile.py:20
+msgid "Passwords must match."
+msgstr "Şifreler eşleşmeli."
+
+#: app/forms/auth.py:27
+msgid "Send reset link"
+msgstr "Sıfırlama linki gönder"
+
+#: app/forms/auth.py:31 app/forms/profile.py:17
+msgid "New password"
+msgstr "Yeni şifre"
+
+#: app/forms/auth.py:33 app/forms/profile.py:19
+msgid "Confirm new password"
+msgstr "Yeni şifreyi onayla"
+
+#: app/forms/common.py:9 app/templates/blueprints/materials/list.html:44
+#: app/templates/blueprints/recipes/detail.html:16 app/templates/blueprints/recipes/list.html:38
+msgid "Delete"
+msgstr "Sil"
+
+#: app/forms/material.py:10 app/templates/blueprints/materials/list.html:15
+#, fuzzy
+msgid "Name"
+msgstr "Kullanıcı adı"
+
+#: app/forms/material.py:14 app/templates/blueprints/materials/list.html:16
+msgid "Category"
+msgstr "Kategori"
+
+#: app/forms/material.py:18 app/templates/blueprints/materials/list.html:17
+msgid "Unit"
+msgstr "Birim"
+
+#: app/forms/material.py:18
+msgid "e.g. piece, pack, g"
+msgstr "örn. adet, paket, gr"
+
+#: app/forms/material.py:19 app/templates/blueprints/materials/list.html:18
+#: app/templates/blueprints/recipes/detail.html:31
+msgid "Unit cost"
+msgstr "Birim maliyet"
+
+#: app/forms/material.py:20 app/templates/blueprints/materials/list.html:32
+msgid "Active"
+msgstr "Aktif"
+
+#: app/forms/material.py:21
+msgid "Save material"
+msgstr "Malzemeyi kaydet"
+
+#: app/forms/profile.py:10
+msgid "First name"
+msgstr "Ad"
+
+#: app/forms/profile.py:11
+msgid "Last name"
+msgstr "Soyad"
+
+#: app/forms/profile.py:12
+msgid "Save changes"
+msgstr "Değişiklikleri kaydet"
+
+#: app/forms/profile.py:16
+#, fuzzy
+msgid "Current password"
+msgstr "Şifreyi sıfırla"
+
+#: app/forms/recipe.py:24 app/templates/blueprints/calculator/index.html:41
+#: app/templates/blueprints/recipes/detail.html:29
+#, fuzzy
+msgid "Material"
+msgstr "E-posta"
+
+#: app/forms/recipe.py:25 app/templates/blueprints/calculator/index.html:42
+#: app/templates/blueprints/recipes/detail.html:30
+msgid "Quantity"
+msgstr "Miktar"
+
+#: app/forms/recipe.py:29
+msgid "Product name / code"
+msgstr "Ürün adı / kodu"
+
+#: app/forms/recipe.py:32 app/templates/blueprints/recipes/detail.html:65
+msgid "Labor hours"
+msgstr "İşçilik saati"
+
+#: app/forms/recipe.py:33 app/templates/blueprints/recipes/detail.html:68
+msgid "Hourly rate"
+msgstr "Saatlik ücret"
+
+#: app/forms/recipe.py:35
+msgid "Overhead (%)"
+msgstr "Genel gider (%)"
+
+#: app/forms/recipe.py:38
+msgid "Profit margin (%)"
+msgstr "Kâr marjı (%)"
+
+#: app/forms/recipe.py:41
+msgid "Tax / VAT (%)"
+msgstr "Vergi / KDV (%)"
+
+#: app/forms/recipe.py:44
+msgid "Save recipe"
+msgstr "Reçeteyi kaydet"
+
+#: app/forms/recipe.py:48
+msgid "Select a material..."
+msgstr "Malzeme seçin..."
+
+#: app/templates/blueprints/calculator/index.html:10
+msgid "Saved recipes"
+msgstr "Kayıtlı reçeteler"
+
+#: app/templates/blueprints/calculator/index.html:34
+msgid "Add line"
+msgstr "Satır ekle"
+
+#: app/templates/blueprints/calculator/index.html:43 app/templates/blueprints/recipes/detail.html:32
+msgid "Subtotal"
+msgstr "Ara toplam"
+
+#: app/templates/blueprints/calculator/index.html:57
+msgid "Labor, overhead and margin"
+msgstr "İşçilik, genel gider ve kâr"
+
+#: app/templates/blueprints/calculator/index.html:74 app/templates/blueprints/recipes/detail.html:86
+msgid "Summary"
+msgstr "Özet"
+
+#: app/templates/blueprints/calculator/index.html:77 app/templates/blueprints/recipes/detail.html:50
+#: app/templates/blueprints/recipes/detail.html:89 app/templates/blueprints/recipes/list.html:17
+msgid "Material cost"
+msgstr "Malzeme maliyeti"
+
+#: app/templates/blueprints/calculator/index.html:80 app/templates/blueprints/recipes/detail.html:92
+msgid "Labor cost"
+msgstr "İşçilik maliyeti"
+
+#: app/templates/blueprints/calculator/index.html:83 app/templates/blueprints/recipes/detail.html:71
+#: app/templates/blueprints/recipes/detail.html:95
+msgid "Overhead"
+msgstr "Genel gider"
+
+#: app/templates/blueprints/calculator/index.html:86 app/templates/blueprints/recipes/detail.html:98
+#: app/templates/blueprints/recipes/list.html:18
+msgid "Net cost"
+msgstr "Net maliyet"
+
+#: app/templates/blueprints/calculator/index.html:89 app/templates/blueprints/recipes/detail.html:101
+msgid "Price before tax"
+msgstr "Vergi öncesi fiyat"
+
+#: app/templates/blueprints/calculator/index.html:92 app/templates/blueprints/recipes/detail.html:104
+msgid "Tax"
+msgstr "Vergi"
+
+#: app/templates/blueprints/calculator/index.html:99 app/templates/blueprints/recipes/detail.html:111
+#: app/templates/blueprints/recipes/list.html:19
+msgid "Suggested price"
+msgstr "Önerilen satış fiyatı"
+
+#: app/templates/blueprints/calculator/index.html:104
+msgid "Live preview only — totals are recalculated on the server when you save."
+msgstr "Yalnızca canlı önizleme — toplamlar kaydederken sunucuda yeniden hesaplanır."
+
+#: app/templates/blueprints/calculator/index.html:111 app/templates/blueprints/materials/form.html:43
+msgid "Cancel"
+msgstr "İptal"
+
+#: app/templates/blueprints/materials/list.html:19
+msgid "Status"
+msgstr "Durum"
+
+#: app/templates/blueprints/materials/list.html:20 app/templates/blueprints/recipes/list.html:20
+msgid "Actions"
+msgstr "İşlemler"
+
+#: app/templates/blueprints/materials/list.html:34
+msgid "Inactive"
+msgstr "Pasif"
+
+#: app/templates/blueprints/materials/list.html:39 app/templates/blueprints/recipes/detail.html:12
+#: app/templates/blueprints/recipes/list.html:33
+msgid "Edit"
+msgstr "Düzenle"
+
+#: app/templates/blueprints/materials/list.html:42
+msgid "Delete this material?"
+msgstr "Bu malzeme silinsin mi?"
+
+#: app/templates/blueprints/materials/list.html:54
+msgid "No materials yet. Add one above, or run \"flask seed-materials\" for a starter catalogue."
+msgstr ""
+"Henüz malzeme yok. Yukarıdan ekleyin ya da başlangıç kataloğu için \"flask seed-materials\" "
+"komutunu çalıştırın."
+
+#: app/templates/blueprints/recipes/detail.html:8
+msgid "Priced on"
+msgstr "Fiyatlandırma tarihi"
+
+#: app/templates/blueprints/recipes/detail.html:11
+msgid "Back to list"
+msgstr "Listeye dön"
+
+#: app/templates/blueprints/recipes/detail.html:14 app/templates/blueprints/recipes/list.html:36
+msgid "Delete this recipe?"
+msgstr "Bu reçete silinsin mi?"
+
+#: app/templates/blueprints/recipes/detail.html:57
+msgid "Unit costs are the ones recorded when this recipe was saved, not current catalogue prices."
+msgstr "Birim maliyetler, bu reçetenin kaydedildiği andaki değerlerdir; güncel katalog fiyatları değildir."
+
+#: app/templates/blueprints/recipes/detail.html:62
+msgid "Inputs"
+msgstr "Girdiler"
+
+#: app/templates/blueprints/recipes/detail.html:74
+msgid "Profit margin"
+msgstr "Kâr marjı"
+
+#: app/templates/blueprints/recipes/detail.html:77
+msgid "Tax / VAT"
+msgstr "Vergi / KDV"
+
+#: app/templates/blueprints/recipes/list.html:7
+msgid "New calculation"
+msgstr "Yeni hesaplama"
+
+#: app/templates/blueprints/recipes/list.html:15
+msgid "Product"
+msgstr "Ürün"
+
+#: app/templates/blueprints/recipes/list.html:16
+msgid "Created"
+msgstr "Oluşturulma"
+
+#: app/templates/blueprints/recipes/list.html:47
+msgid "No recipes saved yet. Price your first bonsai in the calculator."
+msgstr "Henüz kayıtlı reçete yok. İlk bonsainizi hesaplayıcıda fiyatlandırın."
+
+#: app/templates/layouts/master.html:23
+msgid "Calculator"
+msgstr "Hesaplayıcı"
+
+#: app/templates/layouts/master.html:37
+msgid "Log out"
+msgstr "Çıkış yap"
+
+#: app/templates/macros/recipe_items.html:21
+msgid "Remove line"
+msgstr "Satırı kaldır"
+

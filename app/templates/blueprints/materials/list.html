@@ -1,0 +1,58 @@
+{% extends "layouts/master.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0">{{ _('Materials') }}</h1>
+        <a class="btn btn-primary" href="{{ url_for('materials.create') }}">{{ _('New material') }}</a>
+    </div>
+
+    {% if materials %}
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>{{ _('Name') }}</th>
+                        <th>{{ _('Category') }}</th>
+                        <th>{{ _('Unit') }}</th>
+                        <th class="text-end">{{ _('Unit cost') }}</th>
+                        <th>{{ _('Status') }}</th>
+                        <th class="text-end">{{ _('Actions') }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for material in materials %}
+                        <tr class="{{ '' if material.is_active else 'text-body-secondary' }}">
+                            <td>{{ material.name }}</td>
+                            <td>{{ material.category.label }}</td>
+                            <td>{{ material.unit }}</td>
+                            <td class="text-end">{{ "%.2f"|format(material.unit_cost) }}</td>
+                            <td>
+                                {% if material.is_active %}
+                                    <span class="badge text-bg-success">{{ _('Active') }}</span>
+                                {% else %}
+                                    <span class="badge text-bg-secondary">{{ _('Inactive') }}</span>
+                                {% endif %}
+                            </td>
+                            <td class="text-end">
+                                <a class="btn btn-sm btn-outline-secondary"
+                                   href="{{ url_for('materials.edit', material_id=material.id) }}">{{ _('Edit') }}</a>
+                                <form class="d-inline" method="post"
+                                      action="{{ url_for('materials.delete', material_id=material.id) }}"
+                                      onsubmit="return confirm('{{ _('Delete this material?') }}');">
+                                    {{ delete_form.hidden_tag() }}
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">{{ _('Delete') }}</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            {{ _('No materials yet. Add one above, or run "flask seed-materials" for a starter catalogue.') }}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

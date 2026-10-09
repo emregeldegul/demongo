@@ -1,55 +1,36 @@
+from flask_babel import lazy_gettext as _l
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
-from wtforms.validators import DataRequired, Email, EqualTo, ValidationError, Length
-
-from app.models.user import User
+from wtforms import BooleanField, PasswordField, StringField, SubmitField
+from wtforms.validators import DataRequired, Email, EqualTo, Length
 
 
 class LoginForm(FlaskForm):
-    email = StringField(
-        "E-Mail",
-        validators=[DataRequired(), Email()],
-        render_kw={"placeholder": "E-Mail", "autofocus": True},
-    )
-    password = PasswordField(
-        "Password",
-        validators=[DataRequired()],
-        render_kw={"placeholder": "Password"}
-    )
-    remember_me = BooleanField("Remember Me")
-    submit = SubmitField("Login")
+    email = StringField(_l("Email"), validators=[DataRequired(), Email()])
+    password = PasswordField(_l("Password"), validators=[DataRequired()])
+    remember_me = BooleanField(_l("Remember me"))
+    submit = SubmitField(_l("Log in"))
 
 
 class RegisterForm(FlaskForm):
-    first_name = StringField(
-        "First Name",
-        validators=[DataRequired(), Length(max=30)],
-        render_kw={"placeholder": "First Name", "autofocus": True}
+    email = StringField(_l("Email"), validators=[DataRequired(), Email()])
+    username = StringField(_l("Username"), validators=[DataRequired(), Length(min=3, max=150)])
+    password = PasswordField(_l("Password"), validators=[DataRequired(), Length(min=8)])
+    confirm_password = PasswordField(
+        _l("Confirm password"),
+        validators=[DataRequired(), EqualTo("password", message=_l("Passwords must match."))],
     )
-    last_name = StringField(
-        "Last Name",
-        validators=[DataRequired(), Length(max=30)],
-        render_kw={"placeholder": "Last Name"}
-    )
-    email = StringField(
-        "E-Mail",
-        validators=[DataRequired(), Email(), Length(max=70)],
-        render_kw={"placeholder": "E-Mail"}
-    )
-    password = PasswordField(
-        "Password",
-        validators=[DataRequired(), Length(min=6, max=20)],
-        render_kw={"placeholder": "Password"}
-    )
-    password_confirm = PasswordField(
-        "Password Confirm",
-        validators=[DataRequired(), EqualTo("password")],
-        render_kw={"placeholder": "Password Confirm"}
-    )
-    submit = SubmitField("Register")
+    submit = SubmitField(_l("Register"))
 
-    def validate_email(self, email):  # noqa
-        user = User.query.filter_by(email=email.data).first()
 
-        if user:
-            raise ValidationError("This e-mail address cannot be used.")
+class PasswordResetRequestForm(FlaskForm):
+    email = StringField(_l("Email"), validators=[DataRequired(), Email()])
+    submit = SubmitField(_l("Send reset link"))
+
+
+class PasswordResetForm(FlaskForm):
+    password = PasswordField(_l("New password"), validators=[DataRequired(), Length(min=8)])
+    confirm_password = PasswordField(
+        _l("Confirm new password"),
+        validators=[DataRequired(), EqualTo("password", message=_l("Passwords must match."))],
+    )
+    submit = SubmitField(_l("Reset password"))

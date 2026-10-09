@@ -1,0 +1,24 @@
+{% extends "layouts/master.html" %}
+
+{% block content %}
+<div class="container py-5" style="max-width: 480px;">
+    <h1 class="mb-4">Profile</h1>
+
+    <dl class="row">
+        <dt class="col-sm-4">Username</dt>
+        <dd class="col-sm-8">{{ current_user.username }}</dd>
+
+        <dt class="col-sm-4">Email</dt>
+        <dd class="col-sm-8">{{ current_user.email }}</dd>
+
+        <dt class="col-sm-4">First name</dt>
+        <dd class="col-sm-8">{{ current_user.first_name or "-" }}</dd>
+
+        <dt class="col-sm-4">Last name</dt>
+        <dd class="col-sm-8">{{ current_user.last_name or "-" }}</dd>
+    </dl>
+
+    <a class="btn btn-primary" href="{{ url_for('profile.edit') }}">Edit profile</a>
+    <a class="btn btn-outline-secondary" href="{{ url_for('profile.change_password') }}">Change password</a>
+</div>
+{% endblock %}

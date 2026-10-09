@@ -1,0 +1,50 @@
+{% extends "layouts/master.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0">{{ _('Recipes') }}</h1>
+        <a class="btn btn-primary" href="{{ url_for('calculator.index') }}">{{ _('New calculation') }}</a>
+    </div>
+
+    {% if recipes %}
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>{{ _('Product') }}</th>
+                        <th>{{ _('Created') }}</th>
+                        <th class="text-end">{{ _('Material cost') }}</th>
+                        <th class="text-end">{{ _('Net cost') }}</th>
+                        <th class="text-end">{{ _('Suggested price') }}</th>
+                        <th class="text-end">{{ _('Actions') }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for recipe in recipes %}
+                        <tr>
+                            <td><a href="{{ url_for('recipes.detail', recipe_id=recipe.id) }}">{{ recipe.name }}</a></td>
+                            <td>{{ recipe.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                            <td class="text-end">{{ "%.2f"|format(recipe.total_material_cost) }}</td>
+                            <td class="text-end">{{ "%.2f"|format(recipe.total_cost) }}</td>
+                            <td class="text-end fw-bold">{{ "%.2f"|format(recipe.suggested_price) }}</td>
+                            <td class="text-end">
+                                <a class="btn btn-sm btn-outline-secondary"
+                                   href="{{ url_for('calculator.index', recipe_id=recipe.id) }}">{{ _('Edit') }}</a>
+                                <form class="d-inline" method="post"
+                                      action="{{ url_for('recipes.delete', recipe_id=recipe.id) }}"
+                                      onsubmit="return confirm('{{ _('Delete this recipe?') }}');">
+                                    {{ delete_form.hidden_tag() }}
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">{{ _('Delete') }}</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="alert alert-info">{{ _('No recipes saved yet. Price your first bonsai in the calculator.') }}</div>
+    {% endif %}
+</div>
+{% endblock %}

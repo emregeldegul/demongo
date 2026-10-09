@@ -1,0 +1,46 @@
+{% extends "layouts/master.html" %}
+
+{% block content %}
+<div class="container py-5" style="max-width: 520px;">
+    <h1 class="h3 mb-4">{{ title }}</h1>
+
+    <form method="post" novalidate>
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control" + (" is-invalid" if form.name.errors else "")) }}
+            {% for error in form.name.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+        </div>
+
+        <div class="mb-3">
+            {{ form.category.label(class="form-label") }}
+            {{ form.category(class="form-select" + (" is-invalid" if form.category.errors else "")) }}
+            {% for error in form.category.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 mb-3">
+                {{ form.unit.label(class="form-label") }}
+                {{ form.unit(class="form-control" + (" is-invalid" if form.unit.errors else "")) }}
+                <div class="form-text">{{ form.unit.description }}</div>
+                {% for error in form.unit.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+            </div>
+
+            <div class="col-sm-6 mb-3">
+                {{ form.unit_cost.label(class="form-label") }}
+                {{ form.unit_cost(class="form-control" + (" is-invalid" if form.unit_cost.errors else ""), type="number", step="0.01", min="0") }}
+                {% for error in form.unit_cost.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+            </div>
+        </div>
+
+        <div class="form-check mb-4">
+            {{ form.is_active(class="form-check-input") }}
+            {{ form.is_active.label(class="form-check-label") }}
+        </div>
+
+        {{ form.submit(class="btn btn-primary") }}
+        <a class="btn btn-link" href="{{ url_for('materials.index') }}">{{ _('Cancel') }}</a>
+    </form>
+</div>
+{% endblock %}
